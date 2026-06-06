@@ -370,7 +370,7 @@ public class MockControllerCommons {
          Response response, Long startTime) {
       // Publish an invocation event before returning.
       MockInvocationEvent event = new MockInvocationEvent(eventSource, service.getName(), service.getVersion(),
-            response.getName(), new Date(startTime), startTime - System.currentTimeMillis());
+            response.getName(), new Date(startTime), System.currentTimeMillis() - startTime);
       applicationContext.publishEvent(event);
       log.debug("Mock invocation event has been published");
    }

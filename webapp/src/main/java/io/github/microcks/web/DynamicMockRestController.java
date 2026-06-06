@@ -560,7 +560,7 @@ public class DynamicMockRestController {
       if (Boolean.TRUE.equals(enableInvocationStats)) {
          MockInvocationEvent event = new MockInvocationEvent(this, mockContext.service.getName(),
                mockContext.service.getVersion(), "DynamicMockRestController", new Date(since),
-               since - System.currentTimeMillis());
+               System.currentTimeMillis() - since);
          applicationContext.publishEvent(event);
          log.debug("Mock invocation event has been published");
       }
